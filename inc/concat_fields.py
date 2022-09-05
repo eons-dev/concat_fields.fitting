@@ -23,6 +23,6 @@ class concat_fields(Fitting):
         for field, contents in this.fields.items():
             if (re.search(this.match, field) is not None):
                 logging.debug(f"Found match for {this.match} in {field}; will add {contents} to {this.field_name}.")
-                if (len(this.output[this.contents])):
+                if (len(this.output[contents])):
                     this.output[this.field_name] += this.joiner
                 this.output[this.field_name] += contents
