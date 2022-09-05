@@ -1,0 +1,31 @@
+{
+  "next": [
+    {
+      "run_when_any" : [
+        "release"
+      ],
+      "build" : "publish",
+      "build_in" : "fitting_concat_fields",
+      "copy" : [
+        {"../../../inc/concat_fields.py" : "fitting_concat_fields/concat_fields.py"}
+      ],
+      "config" : {
+        "name" : "concat_fields",
+        "type" : "fitting",
+        "clear_build_path" : false,
+        "visibility" : "public"
+      }
+    },
+    {
+      "run_when_any" : [
+        "schedule"
+      ],
+      "build" : "proxy",
+      "build_in" : "./",
+      "config" : {
+        "clear_build_path" : false,
+        "proxy" : "../../config/schedule.json"
+      }
+    }
+  ]
+}
